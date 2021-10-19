@@ -4,9 +4,10 @@ import './css/footer.css';
 export default function Footer () {
   return (
     <footer>
-      <button>1</button>
-      <button>2</button>
-      <button>3</button>
+      <button><i class="fas fa-phone"></i></button>
+      <button><i class="far fa-user"></i></button>
+      <button><i class="fas fa-cog"></i></button>
+      <button><i class="far fa-circle"></i></button>
     </footer>
   );
 }
