@@ -1,7 +1,20 @@
 
 .individual-call {
+  margin: 10px 10px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  flex-direction: row;
+  border: 1px solid grey;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.call-info {
+  display:flex;
   flex-direction: column;
+}
+
+.call-info p {
+  margin: 0 auto;
 }

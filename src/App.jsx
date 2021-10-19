@@ -6,7 +6,7 @@ import Footer from './Footer.jsx';
 import Home from './components/Home.jsx';
 import Activity from './components/Activity.jsx';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Route, Switch, BrowserRouter, useLocation, Link } from 'react-router-dom';
+import { Route, Switch, HashRouter, useLocation, Link } from 'react-router-dom';
 
 
 const App = () => {
@@ -59,9 +59,9 @@ const App = () => {
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <App/>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('app')
 );
