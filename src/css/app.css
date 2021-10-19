@@ -13,18 +13,18 @@
   width: 376px;
   height: 666px;
   z-index: 100;
-
+  overflow: hidden;
   background: whitesmoke;
   border-radius: 3px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, .9);
 }
 
 #app .main {
-  height: 500px;
+  height: 490px;
   display: flex;
   align-items: center;
   margin: 0 auto;
   justify-content: center;
-
+  overflow: hidden;
 }
 

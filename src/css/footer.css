@@ -3,7 +3,6 @@ footer {
   display:flex;
   justify-content: space-between;
   align-items: center;
-  position: absolute;
   width: 375px;
   padding: 10px 0;
   box-shadow: 0 0 1px rgba(50, 50, 50, 0.75);
