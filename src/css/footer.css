@@ -1,0 +1,13 @@
+
+footer {
+  display:flex;
+  justify-content: space-between;
+  position: absolute;
+  bottom:139px;
+  border: 1px solid  black;
+  width: 375px;
+  padding: 25px 0;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+};
+
+
