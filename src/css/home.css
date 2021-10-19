@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+svg text {
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 10px;
+  stroke: #1d804e;
+  font-size: 60px;
+  font-weight: 400;
+  stroke-width: 1;
+  animation: textAnimate 5s infinite alternate;
+}
+
+@keyframes textAnimate {
+  0% {
+    stroke-dasharray: 0 50%;
+    stroke-dashoffset:  20%;
+    fill: black;
+
+  }
+  
+  100% {
+    stroke-dasharray: 50% 0;
+    stroke-dashoffstet: -20%;
+    fill: hsla(189, 68%, 75%,0%)
+  }
+  
+}
+
+

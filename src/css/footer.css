@@ -3,11 +3,38 @@ footer {
   display:flex;
   justify-content: space-between;
   position: absolute;
-  bottom:139px;
-  border: 1px solid  black;
   width: 375px;
-  padding: 25px 0;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-};
+  padding: 10px 0;
+  box-shadow: 0 0 1px rgba(50, 50, 50, 0.75);
+  background-color: white;
+}
+
+footer button {
+  border:none;
+  background-color: white;
+  margin: 1vw auto;
+  font-size: 1.5em;
+
+}
+
+footer button:hover {
+  cursor: pointer;
+}
+
+
+.fa-circle {
+  background-color: #63d471;
+  border-radius: 50%;
+  opacity: 65%;
+}
+
+.number-pad {
+  padding: 15px 20px;
+  border-radius: 50%;
+  box-shadow: 0 0 1px rgba(50, 50, 50, 0.75);
+  color:white;
+  background-color: #63d471;
+  background-image: linear-gradient(315deg, #63d471 0%, #429261 74%);
+}
 
 

@@ -19,3 +19,12 @@
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, .9);
 }
 
+#app .main {
+  height: 489px;
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  justify-content: center;
+
+}
+
