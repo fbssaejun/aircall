@@ -2,6 +2,7 @@
 footer {
   display:flex;
   justify-content: space-between;
+  align-items: center;
   position: absolute;
   width: 375px;
   padding: 10px 0;
@@ -9,17 +10,15 @@ footer {
   background-color: white;
 }
 
-footer button {
+footer a {
   border:none;
   background-color: white;
   margin: 1vw auto;
   font-size: 1.5em;
-
+  text-decoration: none;
+  color: grey;
 }
 
-footer button:hover {
-  cursor: pointer;
-}
 
 
 .fa-circle {
@@ -31,10 +30,12 @@ footer button:hover {
 .number-pad {
   padding: 15px 20px;
   border-radius: 50%;
-  box-shadow: 0 0 1px rgba(50, 50, 50, 0.75);
   color:white;
   background-color: #63d471;
   background-image: linear-gradient(315deg, #63d471 0%, #429261 74%);
+  box-shadow: 0 0.25px 0.25px rgba(0, 0, 0, 0.12), 0 0.5px 0.5px rgba(0, 0, 0, 0.12),
+  0 1px 1px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.12);
 }
+
 
 
