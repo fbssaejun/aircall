@@ -30,12 +30,12 @@ export default function Archive({ calls }) {
   });
 
   return (
-    <form className="activity" onSubmit={() => unarchiveAll(archivedCalls)}>
-      <button className="archive-btn">
+    <div className="activity">
+      <button className="archive-btn" onClick={() => unarchiveAll(archivedCalls)}>
         <i className="far fa-folder-open"></i>Unarchive All Calls
       </button>
       <h1>Archive</h1>
       {callFeed}
-    </form>
+    </div>
   );
 }

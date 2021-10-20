@@ -24,3 +24,7 @@ header svg {
 .header-tab a {
   margin-right: 25px;
 }
+
+.header-tab a:hover {
+  transform: scale(1.08);
+}

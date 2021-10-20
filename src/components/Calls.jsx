@@ -7,7 +7,7 @@ import Modal from "@mui/material/Modal";
 import moment from "moment";
 
 export default function Calls(props) {
-  const { direction, type, createdAt, duration, from, isArchived, via, to } =
+  const { direction, type, createdAt, duration, from, isArchived, via, to, id } =
     props;
 
   const [open, setOpen] = useState(false);
@@ -29,6 +29,18 @@ export default function Calls(props) {
 
   const callDate = moment(createdAt).format("MMM DD YYYY");
   const callTime = moment(createdAt).format("LT");
+
+  const archiveACall = (id) => {
+    axios.post(`https://aircall-job.herokuapp.com/activities/${id}`, {
+      is_archived: true
+    })
+  }
+
+  const unArchiveACall = (id) => {
+    axios.post(`https://aircall-job.herokuapp.com/activities/${id}`, {
+      is_archived: false
+    })
+  }
 
   return (
     <div>
@@ -71,9 +83,13 @@ export default function Calls(props) {
           <span>Archived: {isArchived.toString()}</span>
           <span>Via: {via}</span>
           {!isArchived ? 
-          <button className="archive-button">Archive</button>
+          <button className="archive-button" onClick={() => {
+            handleClose()
+            archiveACall(id)}}>Archive</button>
           :
-          <button className="archive-button">Unarchive</button>
+          <button className="archive-button" onClick={() => {
+            handleClose()
+            unArchiveACall(id)}}>Unarchive</button>
          }
         </Box>
       </Modal>
