@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "../css/calls.css";
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import Typography from "@mui/material/Typography";
+import moment from 'moment'
 
 export default function Calls(props) {
   const { direction, type, createdAt, duration, from, isArchived, via, to } =
@@ -26,9 +26,15 @@ export default function Calls(props) {
     p: 4,
   };
 
+  const callDate = moment(createdAt).format('MMM DD YYYY')
+  const callTime = moment(createdAt).format('LT')
+
+
   return (
+  <Fragment>
+  { !isArchived && 
     <div>
-      {createdAt}
+      {callDate}
       <button className="individual-call-btn" onClick={() => handleOpen()}>
         <div className="individual-call">
           <div>
@@ -40,11 +46,15 @@ export default function Calls(props) {
             )}
           </div>
           <div className="call-info">
+          { direction === 'inbound' ?
             <span className="call-from-name">{from}</span>
+            :
+            <span className="call-from-name">{to}</span>
+          }
             <p>Tried to call via {via}</p>
           </div>
           <div>
-            <p>{createdAt}</p>
+            <p>{callTime}</p>
           </div>
         </div>
       </button>
@@ -65,5 +75,7 @@ export default function Calls(props) {
         </Box>
       </Modal>
     </div>
+  }
+  </Fragment>
   );
 }

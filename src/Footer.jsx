@@ -1,8 +1,10 @@
-import React from 'react';
-import './css/footer.css';
-import { Link } from 'react-router-dom';
+import React from "react";
+import "./css/footer.css";
+import { Link } from "react-router-dom";
 
-export default function Footer () {
+export default function Footer() {
+
+
   return (
     <footer>
       <Link to="/activity"><i className="fas fa-phone"></i></Link>

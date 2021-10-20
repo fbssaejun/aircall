@@ -21,6 +21,10 @@ const Header = () => {
         </g>
       </svg>
       </Link>
+      <div className="header-tab">
+        <Link to="/activity">Inbox</Link>
+        <Link to="/archive">Archive</Link>
+      </div>
     </header>
   );
 };

@@ -45,6 +45,7 @@
 .individual-call-btn {
   border: none;
   background: none;
+  width: 350px;
 }
 
 .individual-call-btn:hover {
