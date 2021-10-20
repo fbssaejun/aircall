@@ -19,3 +19,7 @@
   border: 0.5px solid grey;
   font-family: 'Poppins', sans-serif;
 }
+
+.archive-btn:hover {
+  cursor: pointer;
+}
