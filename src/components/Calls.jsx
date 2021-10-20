@@ -6,7 +6,7 @@ import Modal from "@mui/material/Modal";
 import moment from 'moment'
 
 export default function Calls(props) {
-  const { direction, type, createdAt, duration, from, isArchived, via, to } =
+  const { id, direction, type, createdAt, duration, from, isArchived, via, to } =
     props;
 
   const [open, setOpen] = useState(false);
@@ -71,6 +71,7 @@ export default function Calls(props) {
           <span>Duration: {duration} min</span>
           <span>Archived: {isArchived.toString()}</span>
           <span>Via: {via}</span>
+          <span>id: {id}</span>
         </Box>
       </Modal>
     </div>

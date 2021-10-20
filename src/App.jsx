@@ -8,6 +8,7 @@ import Home from './components/Home.jsx';
 import Archive from './components/Archive.jsx';
 import Activity from './components/Activity.jsx';
 
+// import { axiosCall } from './helpers/helper.js';
 import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Route, Switch, HashRouter, useLocation, Link } from 'react-router-dom';
@@ -23,9 +24,9 @@ const App = () => {
   useEffect(() => {
     axios.get('https://aircall-job.herokuapp.com/activities')
     .then((res) => {
-      setCalls(res.data)
+      setCalls([...res.data])
     })
-  }, [])
+    }, [])
 
   return (
     <div className='container'>
@@ -40,7 +41,7 @@ const App = () => {
           </Route>
           <Route path="/activity">
             <motion.div initial="i" animate="a" exit="e" variants={swipeDownTransition} transition={extendTransition}>
-              <Activity calls={calls}/>
+              <Activity calls={calls} setCalls={setCalls}/>
             </motion.div>
           </Route>
           <Route path="/archive">
