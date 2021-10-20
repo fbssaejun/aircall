@@ -1,11 +1,10 @@
 import React from "react";
 import Calls from "./Calls.jsx";
-import axios from "axios";
 import "../css/activity.css";
 
 import { unarchiveAll } from "../helpers/moveCalls.jsx";
 
-export default function Archive({ calls }) {
+export default function Archive({ calls, setCalls }) {
   const callFeed = calls.map((call) => {
     if (call.is_archived === true) {
       return (
@@ -20,6 +19,8 @@ export default function Archive({ calls }) {
           via={call.via}
           to={call.to}
           id={call.id}
+          setCalls={setCalls}
+          calls={calls}
         />
       );
     }
@@ -31,7 +32,10 @@ export default function Archive({ calls }) {
 
   return (
     <div className="activity">
-      <button className="archive-btn" onClick={() => unarchiveAll(archivedCalls)}>
+      <button
+        className="archive-btn"
+        onClick={() => unarchiveAll(archivedCalls, calls, setCalls)}
+      >
         <i className="far fa-folder-open"></i>Unarchive All Calls
       </button>
       <h1>Archive</h1>

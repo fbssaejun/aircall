@@ -20,6 +20,7 @@ export default function Activity({ calls, setCalls }) {
           to={call.to}
           setCalls={setCalls}
           id={call.id}
+          calls={calls}
         />
       );
     }
@@ -31,7 +32,7 @@ export default function Activity({ calls, setCalls }) {
 
   return (
     <div className="activity" >
-      <button type="button" className="archive-btn" onClick={() => archiveAll(inboxCalls)}>
+      <button type="button" className="archive-btn" onClick={() => archiveAll(inboxCalls, calls, setCalls)}>
         <i className="fas fa-archive"></i>Archive All Calls
       </button>
       <h1>Inbox</h1>

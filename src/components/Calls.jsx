@@ -7,7 +7,7 @@ import Modal from "@mui/material/Modal";
 import moment from "moment";
 
 export default function Calls(props) {
-  const { direction, type, createdAt, duration, from, isArchived, via, to, id } =
+  const { direction, type, createdAt, duration, from, isArchived, via, to, id, setCalls, calls } =
     props;
 
   const [open, setOpen] = useState(false);
@@ -33,12 +33,28 @@ export default function Calls(props) {
    const archiveACall = (id) => {
     axios.post(`https://aircall-job.herokuapp.com/activities/${id}`, {
       is_archived: true
+    }).then((res) => {
+      const newCalls = [...calls]
+      newCalls.map((call) => {
+        if(call.id === res.data.id) {
+          return call.is_archived = true
+        }
+      })
+      setCalls(() => newCalls)
     })
   };
   
    const unArchiveACall = (id) => {
     axios.post(`https://aircall-job.herokuapp.com/activities/${id}`, {
       is_archived: false
+    }).then((res) => {
+      const newCalls = [...calls]
+      newCalls.map((call) => {
+        if(call.id === res.data.id) {
+          return call.is_archived = false
+        }
+      })
+      setCalls(() => newCalls)
     })
   };
 
@@ -83,11 +99,13 @@ export default function Calls(props) {
           <span>Archived: {isArchived.toString()}</span>
           <span>Via: {via}</span>
           {!isArchived ? 
-          <button className="archive-button" onClick={() => {
+          <button className="archive-button" onClick={(e) => {
+            e.preventDefault()
             handleClose()
             archiveACall(id)}}>Archive</button>
           :
-          <button className="archive-button" onClick={() => {
+          <button className="archive-button" onClick={(e) => {
+            e.preventDefault()
             handleClose()
             unArchiveACall(id)}}>Unarchive</button>
          }

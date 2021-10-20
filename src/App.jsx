@@ -46,7 +46,7 @@ const App = () => {
           </Route>
           <Route path="/archive">
             <motion.div initial="i" animate="a" exit="e" variants={swipeUpTransition} transition={extendTransition}>
-              <Archive calls={calls}/>
+              <Archive calls={calls} setCalls={setCalls}/>
             </motion.div>
           </Route>
         </Switch>
