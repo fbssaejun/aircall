@@ -32,3 +32,22 @@
 .made {
   color: green;
 }
+
+/* Call details modal */
+.call-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center; 
+  line-height: 20px;
+}
+
+.individual-call-btn {
+  border: none;
+  background: none;
+}
+
+.individual-call-btn:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
