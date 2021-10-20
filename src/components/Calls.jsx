@@ -1,9 +1,10 @@
 import React from "react";
+import axios from 'axios';
 import "../css/calls.css";
 import { useState } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import moment from 'moment'
+import moment from "moment";
 
 export default function Calls(props) {
   const { direction, type, createdAt, duration, from, isArchived, via, to } =
@@ -26,12 +27,10 @@ export default function Calls(props) {
     p: 4,
   };
 
-  const callDate = moment(createdAt).format('MMM DD YYYY')
-  const callTime = moment(createdAt).format('LT')
-
+  const callDate = moment(createdAt).format("MMM DD YYYY");
+  const callTime = moment(createdAt).format("LT");
 
   return (
-
     <div>
       {callDate}
       <button className="individual-call-btn" onClick={() => handleOpen()}>
@@ -45,11 +44,11 @@ export default function Calls(props) {
             )}
           </div>
           <div className="call-info">
-          { direction === 'inbound' ?
-            <span className="call-from-name">{from}</span>
-            :
-            <span className="call-from-name">{to}</span>
-          }
+            {direction === "inbound" ? (
+              <span className="call-from-name">{from}</span>
+            ) : (
+              <span className="call-from-name">{to}</span>
+            )}
             <p>Tried to call via {via}</p>
           </div>
           <div>
@@ -71,6 +70,11 @@ export default function Calls(props) {
           <span>Duration: {duration} min</span>
           <span>Archived: {isArchived.toString()}</span>
           <span>Via: {via}</span>
+          {!isArchived ? 
+          <button className="archive-button">Archive</button>
+          :
+          <button className="archive-button">Unarchive</button>
+         }
         </Box>
       </Modal>
     </div>

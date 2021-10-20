@@ -27,6 +27,7 @@ export default function Archive({ calls }) {
   const archivedCalls = calls.filter((call) => {
     return call.is_archived === true;
   });
+  
 
   return (
     <form className="activity" onSubmit={unarchiveAll(archivedCalls)}>

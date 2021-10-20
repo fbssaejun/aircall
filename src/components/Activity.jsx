@@ -18,6 +18,7 @@ export default function Activity({ calls, setCalls }) {
           isArchived={call.is_archived}
           via={call.via}
           to={call.to}
+          setCalls={setCalls}
         />
       );
     }
