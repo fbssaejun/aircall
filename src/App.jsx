@@ -6,47 +6,15 @@ import Footer from './Footer.jsx';
 import Home from './components/Home.jsx';
 import Archive from './components/Archive.jsx';
 import Activity from './components/Activity.jsx';
+
 import { AnimatePresence, motion } from 'framer-motion';
 import { Route, Switch, HashRouter, useLocation, Link } from 'react-router-dom';
+import {  swipeDownTransition, extendTransition, swipeUpTransition } from './helpers/Transitions.jsx';
 
 
 const App = () => {
   
   const location = useLocation();
-
-  const swipeDownTransition = {
-    i:{
-      opacity: 0,
-      y: "-100%"
-    },
-    a:{
-      opacity: 1,
-      y:"0"
-    },
-    e:{
-      opacity: 0,
-      y: "100%"
-    },
-  };
-
-  const extendTransition = {
-    duration: 0.5
-  };
-
-  const swipeUpTransition = {
-    i:{
-      opacity: 0,
-      y: "100%"
-    },
-    a:{
-      opacity: 1,
-      y:"0"
-    },
-    e:{
-      opacity: 0,
-      y: "-100%"
-    }
-  };
 
   return (
     <div className='container'>
