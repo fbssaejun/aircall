@@ -1,5 +1,6 @@
 import React from "react";
 import Calls from "./Calls.jsx";
+import axios from "axios";
 import "../css/activity.css";
 
 import { unarchiveAll } from "../helpers/moveCalls.jsx";
@@ -27,10 +28,9 @@ export default function Archive({ calls }) {
   const archivedCalls = calls.filter((call) => {
     return call.is_archived === true;
   });
-  
 
   return (
-    <form className="activity" onSubmit={unarchiveAll(archivedCalls)}>
+    <form className="activity" onSubmit={() => unarchiveAll(archivedCalls)}>
       <button className="archive-btn">
         <i className="far fa-folder-open"></i>Unarchive All Calls
       </button>
