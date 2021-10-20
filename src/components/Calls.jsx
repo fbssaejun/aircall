@@ -30,17 +30,17 @@ export default function Calls(props) {
   const callDate = moment(createdAt).format("MMM DD YYYY");
   const callTime = moment(createdAt).format("LT");
 
-  const archiveACall = (id) => {
+   const archiveACall = (id) => {
     axios.post(`https://aircall-job.herokuapp.com/activities/${id}`, {
       is_archived: true
     })
-  }
-
-  const unArchiveACall = (id) => {
+  };
+  
+   const unArchiveACall = (id) => {
     axios.post(`https://aircall-job.herokuapp.com/activities/${id}`, {
       is_archived: false
     })
-  }
+  };
 
   return (
     <div>
