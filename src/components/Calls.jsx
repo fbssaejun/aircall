@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import "../css/calls.css";
 import { useState } from "react";
 import Box from "@mui/material/Box";
@@ -31,8 +31,7 @@ export default function Calls(props) {
 
 
   return (
-  <Fragment>
-  { !isArchived && 
+
     <div>
       {callDate}
       <button className="individual-call-btn" onClick={() => handleOpen()}>
@@ -75,7 +74,5 @@ export default function Calls(props) {
         </Box>
       </Modal>
     </div>
-  }
-  </Fragment>
   );
 }

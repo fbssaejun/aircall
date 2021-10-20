@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 
 import Header from './Header.jsx';
 import Footer from './Footer.jsx';
@@ -7,6 +8,7 @@ import Home from './components/Home.jsx';
 import Archive from './components/Archive.jsx';
 import Activity from './components/Activity.jsx';
 
+import { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Route, Switch, HashRouter, useLocation, Link } from 'react-router-dom';
 import {  swipeDownTransition, extendTransition, swipeUpTransition } from './helpers/Transitions.jsx';
@@ -15,6 +17,15 @@ import {  swipeDownTransition, extendTransition, swipeUpTransition } from './hel
 const App = () => {
   
   const location = useLocation();
+
+  const [calls, setCalls] = useState([]);
+
+  useEffect(() => {
+    axios.get('https://aircall-job.herokuapp.com/activities')
+    .then((res) => {
+      setCalls(res.data)
+    })
+  }, [])
 
   return (
     <div className='container'>
@@ -29,12 +40,12 @@ const App = () => {
           </Route>
           <Route path="/activity">
             <motion.div initial="i" animate="a" exit="e" variants={swipeDownTransition} transition={extendTransition}>
-              <Activity/>
+              <Activity calls={calls}/>
             </motion.div>
           </Route>
           <Route path="/archive">
             <motion.div initial="i" animate="a" exit="e" variants={swipeUpTransition} transition={extendTransition}>
-              <Archive/>
+              <Archive calls={calls}/>
             </motion.div>
           </Route>
         </Switch>
