@@ -5,6 +5,7 @@ import "../css/activity.css";
 import { archiveAll } from "../helpers/moveCalls.jsx";
 
 export default function Activity({ calls, setCalls }) {
+  
   const callFeed = calls.map((call) => {
     if (!call.is_archived) {
       return (
@@ -26,9 +27,7 @@ export default function Activity({ calls, setCalls }) {
     }
   });
 
-  const inboxCalls = calls.filter((call) => {
-    return call.is_archived === false;
-  });
+  const inboxCalls = calls.filter(call => call.is_archived === false);
 
   return (
     <div className="activity" >

@@ -1,10 +1,11 @@
 import React from "react";
 import axios from 'axios';
 import "../css/calls.css";
-import { useState } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import moment from "moment";
+
+import { useState } from "react";
 
 export default function Calls(props) {
   const { direction, type, createdAt, duration, from, isArchived, via, to, id, setCalls, calls } =
@@ -30,11 +31,11 @@ export default function Calls(props) {
   const callDate = moment(createdAt).format("MMM DD YYYY");
   const callTime = moment(createdAt).format("LT");
 
-   const archiveACall = (id) => {
+   const archiveACall = (id, callsArr) => {
     axios.post(`https://aircall-job.herokuapp.com/activities/${id}`, {
       is_archived: true
     }).then((res) => {
-      const newCalls = [...calls]
+      const newCalls = [...callsArr]
       newCalls.map((call) => {
         if(call.id === res.data.id) {
           return call.is_archived = true
@@ -44,11 +45,11 @@ export default function Calls(props) {
     })
   };
   
-   const unArchiveACall = (id) => {
+   const unArchiveACall = (id, callsArr) => {
     axios.post(`https://aircall-job.herokuapp.com/activities/${id}`, {
       is_archived: false
     }).then((res) => {
-      const newCalls = [...calls]
+      const newCalls = [...callsArr]
       newCalls.map((call) => {
         if(call.id === res.data.id) {
           return call.is_archived = false
@@ -102,12 +103,12 @@ export default function Calls(props) {
           <button className="archive-button" onClick={(e) => {
             e.preventDefault()
             handleClose()
-            archiveACall(id)}}>Archive</button>
+            archiveACall(id, calls)}}>Archive</button>
           :
           <button className="archive-button" onClick={(e) => {
             e.preventDefault()
             handleClose()
-            unArchiveACall(id)}}>Unarchive</button>
+            unArchiveACall(id, calls)}}>Unarchive</button>
          }
         </Box>
       </Modal>
